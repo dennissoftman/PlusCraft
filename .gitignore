@@ -1,0 +1,16 @@
+.idea/*
+*.log
+
+*.exe
+*.dll
+*.so
+*.so.*
+*.dylib
+*.app
+
+*.png
+*.jpeg
+*.jpg
+*.bmp
+*.webp
+
