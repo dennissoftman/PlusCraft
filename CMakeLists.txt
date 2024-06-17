@@ -9,10 +9,20 @@ add_subdirectory(DiligentTools)
 
 add_executable(PlusCraft main.cpp)
 
+target_compile_options(PlusCraft PRIVATE -DUNICODE -DENGINE_DLL)
+target_compile_definitions(PlusCraft PRIVATE SDL_MAIN_HANDLED)
+
 target_link_libraries(PlusCraft
-    Diligent-GraphicsEngineOpenGL-shared
+    Diligent-Common
+    Diligent-GraphicsTools
     Diligent-GraphicsEngineVk-shared
+    Diligent-GraphicsEngineVkInterface
+    Diligent-GraphicsEngineD3D11-shared
+    Diligent-GraphicsEngineD3D11Interface
+    Diligent-GraphicsEngineD3D12-shared
+    Diligent-GraphicsEngineD3D12Interface
 )
+copy_required_dlls(PlusCraft)
 
 find_package(spdlog REQUIRED)
 target_link_libraries(PlusCraft spdlog::spdlog)
